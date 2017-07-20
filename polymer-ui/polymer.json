@@ -1,0 +1,34 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/main.html",
+  "fragments": [
+
+  ],
+  "sources": [
+    "src/**/*",
+    "assets/**/*"
+  ],
+  "extraDependencies": [
+    "node_modules/webcomponentsjs/webcomponents.min.js"
+  ],
+  "builds": [
+    {
+      "name": "default"
+    },
+    {
+      "name": "optimized",
+      "insertPrefetchLinks": true,
+      "js": {"minify": true, "compile": true},
+      "css": {"minify": true},
+      "html": {"minify": true}
+    },
+    {
+      "name": "bundled",
+      "bundle": true,
+      "addServiceWorker": true,
+      "js": {"minify": true, "compile": true},
+      "css": {"minify": true},
+      "html": {"minify": true}
+    }
+  ]
+}

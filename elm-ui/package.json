@@ -1,0 +1,16 @@
+{
+  "name": "@kmade/app",
+  "version": "0.0.1-alpha.0",
+  "description": "Elm APP microservice",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "elm-reactor -p 8000 -a 0.0.0.0",
+    "build": "elm-make --yes src/Main.elm --output=build/index.html"
+  },
+
+  "author": "Dragosh <oancea.dragosh@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+
+  }
+}

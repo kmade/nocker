@@ -1,0 +1,24 @@
+<link rel="import" href="/node_modules/@polymer/polymer/polymer-element.html">
+<link rel="import" href="/src/components/KmHello.html">
+
+<dom-module id="km-app">
+  <template>
+
+    <style>
+
+    </style>
+    <div>
+      <km-hello name="Suzana"></km-hello>
+    </div>
+  </template>
+
+  <script>
+
+    class KmApp extends Polymer.Element {
+      static get is() { return 'km-app'; }
+    }
+
+    // Register custom element class with browser
+    customElements.define(KmApp.is, KmApp);
+  </script>
+</dom-module>

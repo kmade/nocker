@@ -1,0 +1,16 @@
+{
+  "name": "@kmode/polymer-app",
+  "version": "0.0.1-alpha",
+  "main": "build/index.html",
+  "license": "BSD-3-Clause",
+  "flat": true,
+  "dependencies": {
+    "@polymer/polymer": "2.0.2",
+    "webcomponentsjs": "1.0.0"
+  },
+  "scripts": {
+    "start:dev": "polymer serve -p 8081 -H 0.0.0.0",
+    "start": "polymer serve build/default -p 8080 -H 0.0.0.0",
+    "build": "polymer build --bundle --js-minify --css-minify --html-minify"
+  }
+}
