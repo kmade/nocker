@@ -1,4 +1,13 @@
-Docker start-up framework for building KustomMad© applications
+```
+    __      _     ____      __   ___    _____   ______    
+   /  \    / )   / __ \    () ) / __)  / ___/  (   __ \   
+  / /\ \  / /   / /  \ \   ( (_/ /    ( (__     ) (__) )  
+  ) ) ) ) ) )  ( ()  () )  ()   (      ) __)   (    __/   
+ ( ( ( ( ( (   ( ()  () )  () /\ \    ( (       ) \ \  _  
+ / /  \ \/ /    \ \__/ /   ( (  \ \    \ \___  ( ( \ \_)) 
+(_/    \__/      \____/    ()_)  \_\    \____\  )_) \__/  
+```
+Docker start-up framework for building KustomMad™ applications
 
 # ☢️ WORK IN PROGRESS
 
