@@ -18,7 +18,7 @@ app.use((req, res, next) => {
   return next() //here will ensure that app.use will return whatever the next callback returns.
 })
 // Proxy request
-app.use('/service-one', httpProxy('http://service-one'))
+app.use('/service-http', httpProxy('http://service-http'))
 
 app.use('/status', (req, res) => {
   res.json(Object.assign({

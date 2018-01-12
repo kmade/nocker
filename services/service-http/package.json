@@ -1,5 +1,5 @@
 {
-  "name": "@kmade/service-one",
+  "name": "@kmade/service-http",
   "version": "0.0.1-alpha.0",
   "description": "NodeJS API microservice using Docker",
   "scripts": {
