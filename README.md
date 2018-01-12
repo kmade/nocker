@@ -37,6 +37,40 @@ brew install dnsmasq
 
 Allocate enough memory to docker APP: 8GB
 
+
+## Configuration
+
+### Applications
+- API
+http://api.app.dev/ -> http://localhost:4000
+- UI
+http://elm.app.dev/ -> http://localhost:8000
+http://polymer.app.dev/ -> http://localhost:8081
+- DOCS
+http://docs.app.dev/ -> http://localhost:4444
+- DB
+http://db.app.dev -> http://localhost:5984
+http://db.app.dev/_utils/
+
+## Monitor and alert
+
+- Monitoring & Alerts
+http://monitor.app.dev/ -> http://localhost:3000
+http://alert.app.dev/ -> http://localhost:9093
+http://log.app.dev/ -> http://localhost:5601
+
+
 ## Usage
 
+### Run all services
 
+```sh
+docker-compose -f docker/docker-compose.dev.yml up --build
+```
+
+// docker system prune -a
+# get container IP
+//docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+## Resources
+- http://blog.baudson.de/blog/stop-and-remove-all-docker-containers-and-images
