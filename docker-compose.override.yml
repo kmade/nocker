@@ -1,0 +1,54 @@
+version: "3.3"
+
+networks:
+  frontend-net:
+    driver: bridge
+  backend-net:
+    driver: bridge
+
+services:
+  nginx:
+    volumes:
+      - ${CONF_PATH}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${CONF_PATH}/ssl/:/etc/nginx/ssl
+    networks:
+      - frontend-net
+    ports:
+      - "80:80"
+      - "443:443"
+  app:
+    networks:
+      - frontend-net
+    env_file:
+      - ${ROOT_PATH}/.env
+    build:
+      context: ${APP_PATH}
+    command: npm run start:dev
+    volumes:
+      - ${APP_PATH}/:/usr/src/app
+      - /usr/src/app/node_modules
+  api:
+    networks:
+      - frontend-net
+      - backend-net
+    env_file:
+      - ${ROOT_PATH}/.env
+    build:
+      context: ${API_PATH}
+    command: npm run start:dev
+    volumes:
+      - ${API_PATH}/:/usr/src/app
+      - /usr/src/app/node_modules
+  service-http:
+    networks:
+      - backend-net
+    ports:
+      - "8080:80"
+    env_file:
+      - ${ROOT_PATH}/.env
+    build:
+      context: ${SERVICE_HTTP_PATH}
+    command: npm run start:dev
+    volumes:
+      - ${SERVICE_HTTP_PATH}/:/usr/src/app
+      - /usr/src/app/node_modules

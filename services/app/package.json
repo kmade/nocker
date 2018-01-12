@@ -1,0 +1,21 @@
+{
+  "name": "@sinergy/web",
+  "version": "0.0.1-alpha.0",
+  "description": "Polymer application",
+  "scripts": {
+    "start:dev": "polymer serve -p 80 -H 0.0.0.0",
+    "build": "polymer build --bundle --js-minify --css-minify --html-minify",
+    "test": "echo \"Execute test under $NODE_ENV environment\""
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@polymer/polymer": "^2.0.2",
+    "polymer-redux": "^1.0.1",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "@webcomponents/webcomponentsjs": "1.0.0"
+  },
+  "devDependencies": {
+
+  }
+}

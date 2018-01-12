@@ -1,0 +1,6 @@
+scripts
+Dockerfile
+.vscode
+__test__
+coverage
+*.log

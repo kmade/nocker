@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="app/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <title>Nocker main application</title>
+    <meta name="description" content="My Application">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+      body{
+        background: #649A42 url('./assets/meme.jpg') no-repeat center center fixed;
+        background-size: 50%;
+      }
+    </style>
+
+    <style>
+      html,head,body { padding:0; margin:0; }
+      body { font-family: calibri, helvetica, arial, sans-serif; }
+    </style>
+    <script>
+      fetch('https://localhost/api/service-one').then(res => {
+        console.log(res)
+      })
+    </script>
+
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  </head>
+  <body>
+
+  </body>
+</html>
+

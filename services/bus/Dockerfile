@@ -1,3 +1,0 @@
-FROM rabbitmq
-EXPOSE 5000:5672
-

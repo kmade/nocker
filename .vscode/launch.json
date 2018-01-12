@@ -2,37 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
-            "type": "node",
-            "request": "launch",
-            "program": "${workspaceRoot}/api-service/index.js",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "externalConsole": false,
-            "sourceMaps": false,
-            "outDir": null
-        },
-        {
-            "name": "Attach",
+            "name": "Attach API",
             "type": "node",
             "request": "attach",
-            "port": 5858,
-            "address": "0.0.0.0",
             "protocol": "inspector",
+            "port": 3999,
+            "address": "0.0.0.0",
             "restart": false,
             "sourceMaps": false,
             "outDir": null,
-            "localRoot": "${workspaceRoot}/api-service",
-            "remoteRoot": "/src/"
+            "localRoot": "${workspaceRoot}/api",
+            "remoteRoot": "/usr/src/app",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
         }
     ]
 }

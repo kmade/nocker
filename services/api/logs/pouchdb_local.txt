@@ -1,8 +1,0 @@
-[Sun, 30 Jul 2017 19:37:24 GMT] [info] [<0.000.0>] ::ffff:172.20.0.4 - - GET / 200
-[Sun, 30 Jul 2017 19:37:24 GMT] [info] [<0.000.0>] ::ffff:172.20.0.4 - - GET /favicon.ico 404
-[Sun, 30 Jul 2017 19:37:41 GMT] [info] [<0.000.0>] ::ffff:172.20.0.4 - - GET / 200
-[Sun, 30 Jul 2017 19:38:51 GMT] [info] [<0.000.0>] ::ffff:172.20.0.4 - - GET / 304
-[Sun, 30 Jul 2017 19:38:55 GMT] [info] [<0.000.0>] ::ffff:172.20.0.4 - - GET /hello 200
-[Wed, 02 Aug 2017 19:31:28 GMT] [info] [<0.000.0>] ::ffff:172.24.0.5 - - GET / 200
-[Wed, 02 Aug 2017 19:31:28 GMT] [info] [<0.000.0>] ::ffff:172.24.0.5 - - GET /favicon.ico 404
-[Wed, 02 Aug 2017 19:31:39 GMT] [info] [<0.000.0>] ::ffff:172.24.0.5 - - GET / 304

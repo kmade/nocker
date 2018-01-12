@@ -1,4 +1,8 @@
 node_modules
-elm-stuff
+bower_components
 build
 *.log
+.env
+configuration/ssl/*
+volumes
+*.code-workspace

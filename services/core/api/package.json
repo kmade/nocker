@@ -1,0 +1,33 @@
+{
+  "name": "@sinergy/api",
+  "version": "0.0.1-alpha.0",
+  "author": "|{ustomM@de",
+  "description": "NodeJS API Gateway /w express",
+  "main": "src/app.js",
+  "scripts": {
+    "start:dev": "nodemon -w src -w bin --inspect=0.0.0.0:5858 ./bin/server.js",
+    "test": "npm run test:lint && npm run test:unit && npm run test:e2e",
+    "test:lint": "eslint src",
+    "test:unit": "tap src/**/__test__/*.test.js --coverage --100",
+    "test:e2e": "echo \"Run e2e tests\"",
+    "fix:lint": "eslint src --fix"
+  },
+  "keywords": [
+    "express",
+    "server"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.13.4",
+    "express-http-proxy": "^1.1.0",
+    "grpc": "^1.7.1",
+    "grpc-caller": "^0.3.0",
+    "ramda": "^0.24.1",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "eslint": "4",
+    "tap": "10"
+  }
+}
