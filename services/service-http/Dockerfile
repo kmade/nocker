@@ -1,20 +1,19 @@
 # set our node environment, either development or production
 # defaults to production, compose overrides this to development on build and run
+ARG NODE_IMG=node
 ARG NODE_VERSION=9-alpine
 ARG NODEMON_VERSION=latest
 ARG NODE_ENV=production
 ARG PORT=80
-
 # ---- Base Node ----
-FROM node:$NODE_VERSION AS base
+FROM $NODE_IMG:$NODE_VERSION AS base
 RUN mkdir -p /usr/src/app
 
 EXPOSE $PORT 5858 9229
 
-RUN echo "Installing nodemon ${NODEMON_VERSION}"
-RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error
+RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error --unsafe-perm
 
-#HEALTHCHECK CMD curl -fs http://localhost:$PORT/status || exit 1
+HEALTHCHECK CMD curl -fs http://localhost:$PORT || exit 1
 
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json

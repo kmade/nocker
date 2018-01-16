@@ -4,6 +4,7 @@
   "description": "Polymer application",
   "scripts": {
     "start:dev": "polymer serve -p 80 -H 0.0.0.0",
+    "start": "polymer serve -p 80 -H 0.0.0.0",
     "build": "polymer build --bundle --js-minify --css-minify --html-minify",
     "test": "echo \"Execute test under $NODE_ENV environment\""
   },

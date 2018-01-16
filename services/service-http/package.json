@@ -4,13 +4,13 @@
   "description": "NodeJS API microservice using Docker",
   "scripts": {
     "start:dev": "nodemon -w src -w bin --inspect=0.0.0.0:5858 ./bin/server.js",
-    "start": "node server.js",
+    "start": "node ./bin/server.js",
     "test": "echo \"Execute test under $NODE_ENV environment\""
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "dotenv": "^4.0.0",
-    "micro": "^9.0.2"
+    "micro": "^9.0.2",
+    "dotenv": "^4.0.0"
   },
   "devDependencies": {}
 }

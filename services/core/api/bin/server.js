@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
-
 require('dotenv').config()
 const { app, server } = require('..')
 
 const HOST = '0.0.0.0'
-const PORT = 80
+const PORT = process.env.PORT || 80
 server.listen(PORT, () => console.log(`Server running at ${HOST}:${PORT}`))
 
 process.on('SIGINT', function onSigint () {

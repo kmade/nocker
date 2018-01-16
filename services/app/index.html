@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base href="app/">
+    <base href="/app/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
     <title>Nocker main application</title>
@@ -11,7 +11,7 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
       body{
-        background: #649A42 url('./assets/meme.jpg') no-repeat center center fixed;
+        background: #649A42 url('assets/meme.jpg') no-repeat center center fixed;
         background-size: 50%;
       }
     </style>
@@ -21,9 +21,12 @@
       body { font-family: calibri, helvetica, arial, sans-serif; }
     </style>
     <script>
-      fetch('https://localhost/api/service-http').then(res => {
-        console.log(res)
-      })
+      const api = async (uri) => await (await fetch(`${uri}`, {})).json();
+      api('/api/service-http')
+        .then(console.log)
+        .catch(console.error)
+        .finally(console.info('Done'))
+
     </script>
 
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>

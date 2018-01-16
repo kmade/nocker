@@ -7,12 +7,24 @@ services:
 
   app:
     container_name: ${COMPOSE_PROJECT_NAME}.app
-    image: ${COMPOSE_PROJECT_NAME}.app
+    image: ${COMPOSE_PROJECT_NS}/app
+    build:
+      args:
+        NODE_IMG: ${NODE_IMG}
+        NODE_VERSION: ${NODE_VERSION}
 
   api:
     container_name: ${COMPOSE_PROJECT_NAME}.api
-    image: ${COMPOSE_PROJECT_NAME}.api
+    image: ${COMPOSE_PROJECT_NAME}/api
+    build:
+      args:
+        NODE_IMG: ${NODE_IMG}
+        NODE_VERSION: ${NODE_VERSION}
 
   service-http:
     container_name: ${COMPOSE_PROJECT_NAME}.service-http
-    image: ${COMPOSE_PROJECT_NAME}.service-http
+    image: ${COMPOSE_PROJECT_NAME}/service-http
+    build:
+      args:
+        NODE_IMG: ${NODE_IMG}
+        NODE_VERSION: ${NODE_VERSION}
