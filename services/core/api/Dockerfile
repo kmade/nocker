@@ -13,7 +13,7 @@ EXPOSE $PORT 5858 9229
 
 RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error --unsafe-perm
 
-HEALTHCHECK CMD curl -fs http://localhost:$PORT/status || exit 1
+HEALTHCHECK CMD curl -fs http://localhost:$PORT || exit 1
 
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json

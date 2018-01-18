@@ -1,26 +1,16 @@
-const express = require('express')
-const httpProxy = require('express-http-proxy')
-
-const info  = require('../package.json')
-const app = express()
-
-const server = require('http').Server(app)
-
-const io = require('socket.io')(server, {
-  path: '/io',
-  transports: ['websocket'],
-})
-
-io.on('connection', socket => console.log('Client connected'))
+const app     = require('express')()
+const info    = require('../package.json')
+const gateway = require('./proxy')(app)
+const server  = require('http').Server(app)
 
 app.use((req, res, next) => {
   res.io = io;
   return next() //here will ensure that app.use will return whatever the next callback returns.
 })
-// Proxy request
-app.use('/service-http', httpProxy('http://service-http'))
-
-app.use('/status', (req, res) => {
+/**
+ * Just the status
+ */
+app.get('/', (req, res) => {
   res.json(Object.assign({
     status: 'OK'
   }, info, {
@@ -28,6 +18,9 @@ app.use('/status', (req, res) => {
   }))
 })
 
+/**
+ * Error Catcher
+ */
 app.use((error, req, res, next) => {
   res.status(error.status || 500)
   res.json({
@@ -36,7 +29,9 @@ app.use((error, req, res, next) => {
   })
   return next()
 })
-
+/**
+ * 404 last in the chain
+ */
 app.get('*', (req, res) => {
   res.status(404)
   res.json({
@@ -44,5 +39,14 @@ app.get('*', (req, res) => {
     error: new Error('E_NOT_FOUND').toString(),
   })
 })
+
+/**
+ * Setup socket
+ */
+const io = require('socket.io')(server, {
+  path: '/io',
+  transports: ['websocket'],
+}).on('connection', socket => console.log('Client connected'))
+
 
 module.exports = { app, server }
