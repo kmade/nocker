@@ -4,6 +4,7 @@
   "author": "|{ustomM@de",
   "description": "NodeJS API Gateway /w express",
   "main": "src/app.js",
+  "private": true,
   "scripts": {
     "start:dev": "nodemon -w src -w bin --inspect=0.0.0.0:5858 ./bin/server.js",
     "start": "node ./bin/server.js",

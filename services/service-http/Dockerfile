@@ -5,26 +5,26 @@ ARG NODE_VERSION=9-alpine
 ARG NODEMON_VERSION=latest
 ARG NODE_ENV=production
 ARG PORT=80
-# ---- Base Node ----
+# Base Node
 FROM $NODE_IMG:$NODE_VERSION AS base
+# Application root
 RUN mkdir -p /usr/src/app
-
+WORKDIR /usr/src/app
+ADD . /usr/src/app
+## Exposing
 EXPOSE $PORT 5858 9229
-
-RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error --unsafe-perm
-
+# HEALTHCHECK
+RUN apk add --no-cache curl
 HEALTHCHECK CMD curl -fs http://localhost:$PORT || exit 1
-
+# Global packages
+RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error --unsafe-perm
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
 RUN cd /tmp && npm install --loglevel error && npm cache clean --force
 RUN cp -a /tmp/node_modules /usr/src/app/
-
+## Default ENVs
 ENV PORT $PORT
 ENV NODE_ENV $NODE_ENV
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
-# Define working directory
-WORKDIR /usr/src/app
-ADD . /usr/src/app
-
+## Execute, compose overrides this to development
 CMD [ "node", "bin/server.js"]

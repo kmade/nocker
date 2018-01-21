@@ -15,7 +15,7 @@ services:
 
   api:
     container_name: ${COMPOSE_PROJECT_NAME}.api
-    image: ${COMPOSE_PROJECT_NAME}/api
+    image: ${COMPOSE_PROJECT_NS}/api
     build:
       args:
         NODE_IMG: ${NODE_IMG}
@@ -23,7 +23,7 @@ services:
 
   service-http:
     container_name: ${COMPOSE_PROJECT_NAME}.service-http
-    image: ${COMPOSE_PROJECT_NAME}/service-http
+    image: ${COMPOSE_PROJECT_NS}/service-http
     build:
       args:
         NODE_IMG: ${NODE_IMG}

@@ -1,11 +1,8 @@
 #!/usr/bin/env node
-
 require('dotenv').config()
 const { app, server } = require('..')
-
-const HOST = '0.0.0.0'
 const PORT = process.env.PORT || 80
-server.listen(PORT, () => console.log(`Server running at ${HOST}:${PORT}`))
+server.listen(PORT, () => console.log(`Server running at PORT ${PORT}`))
 
 process.on('SIGINT', function onSigint () {
   console.info('Got SIGINT (aka ctrl-c in docker). Graceful shutdown ', new Date().toISOString())

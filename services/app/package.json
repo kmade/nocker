@@ -1,22 +1,41 @@
 {
-  "name": "@sinergy/web",
+  "name": "@kmade/app",
   "version": "0.0.1-alpha.0",
   "description": "Polymer application",
+  "private": true,
+  "flat": true,
   "scripts": {
-    "start:dev": "polymer serve -p 80 -H 0.0.0.0",
-    "start": "polymer serve -p 80 -H 0.0.0.0",
-    "build": "polymer build --bundle --js-minify --css-minify --html-minify",
+    "start:dev": "webpack-dev-server --config ./webpack.dev.conf.js",
+    "build": "webpack --config ./webpack.prod.conf.js",
     "test": "echo \"Execute test under $NODE_ENV environment\""
   },
   "license": "UNLICENSED",
   "dependencies": {
-    "@polymer/polymer": "^2.0.2",
+    "@polymer/polymer": "next",
+    "@webcomponents/webcomponentsjs": "^1.0.22",
+    "error": "^7.0.2",
     "polymer-redux": "^1.0.1",
+    "ramda": "^0.25.0",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "@webcomponents/webcomponentsjs": "1.0.0"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-
+    "clean-webpack-plugin": "0.1.17",
+    "copy-webpack-plugin": "4.1.0",
+    "css-loader": "^0.28.9",
+    "html-loader": "0.5.1",
+    "html-webpack-plugin": "2.30.1",
+    "postcss": "^6.0.16",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.10",
+    "text-loader": "0.0.1",
+    "ts-loader": "2.3.7",
+    "typescript": "2.5.3",
+    "url-loader": "^0.6.2",
+    "webpack": "3.6.0",
+    "webpack-dev-server": "2.9.1"
+  },
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "1.0.22"
   }
 }

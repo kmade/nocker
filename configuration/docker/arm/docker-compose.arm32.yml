@@ -1,0 +1,32 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: arm32v7/nginx
+
+
+  app:
+    image: ${COMPOSE_PROJECT_NAME}/arm32v6.app
+    build:
+      context: ${APP_PATH}
+      args:
+        NODE_IMG: arm32v6/node
+        NODE_VERSION: 9-alpine
+
+  api:
+    image: ${COMPOSE_PROJECT_NAME}/arm32v6.api
+    build:
+      context: ${API_PATH}
+      args:
+        NODE_IMG: arm32v6/node
+        NODE_VERSION: 9-alpine
+
+  service-http:
+    image: ${COMPOSE_PROJECT_NAME}/arm32v6.service-http
+    build:
+      context: ${SERVICE_HTTP_PATH}
+      args:
+        NODE_IMG: arm32v6/node
+        NODE_VERSION: 9-alpine
+
+
