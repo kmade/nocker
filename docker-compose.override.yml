@@ -7,34 +7,37 @@ networks:
     driver: bridge
 
 services:
-  nginx:
-    volumes:
-      - ${CONF_PATH}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ${CONF_PATH}/ssl/:/etc/nginx/ssl
-      - ${APP_PATH}/build/:/usr/share/nginx/html/app/ #move to production
-    networks:
-      - frontend-net
-    ports:
-      - "80:80"
-      - "443:443"
-
   app:
     networks:
       - frontend-net
-    ports:
-      - "8080:8080"
     env_file:
       - ${ROOT_PATH}/.env
     build:
       context: ${APP_PATH}
     stdin_open: true
     tty: true
-    command: yarn start:dev
+    command: npm run start:dev
     volumes:
       - ${APP_PATH}/:/usr/src/app
       - /usr/src/app/node_modules
-
+  dashboard:
+    networks:
+      - frontend-net
+    environment:
+      - BASE_URL=dashboard
+    env_file:
+      - ${ROOT_PATH}/.env
+    build:
+      context: ${DASHBOARD_PATH}
+    stdin_open: true
+    tty: true
+    command: npm run start:dev
+    volumes:
+      - ${DASHBOARD_PATH}/:/usr/src/app
+      - /usr/src/app/node_modules
   api:
+    depends_on:
+      - service-http
     networks:
       - frontend-net
       - backend-net
@@ -58,3 +61,20 @@ services:
     volumes:
       - ${SERVICE_HTTP_PATH}/:/usr/src/app
       - /usr/src/app/node_modules
+
+  proxy:
+    env_file:
+      - ${ROOT_PATH}/.env
+    depends_on:
+      - app
+      - dashboard
+    build:
+      context: ${ROOT_PATH}
+    volumes:
+      - ${CONF_PATH}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ${CONF_PATH}/ssl/:/etc/nginx/ssl
+    networks:
+      - frontend-net
+    ports:
+      - "80:80"
+      - "443:443"

@@ -45,6 +45,7 @@ services:
     environment:
       - com.df.aclName=__acme_letsencrypt_companion # arbitrary aclName to make sure it's on top on HAProxy's list
       - DOMAIN_1=kmade.net
+      - DOMAIN_2=('admin.kmade.net' 'status.kmade.net' 'registry.kmade.net' 'academy.kmade.net' 'sinergy.kmade.net')
       - CERTBOT_EMAIL=oancea.dragosh@gmail.com
       - PROXY_ADDRESS=swarm-proxy
       - CERTBOT_CRON_RENEW='10 15 * * *'

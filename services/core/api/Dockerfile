@@ -20,7 +20,7 @@ HEALTHCHECK CMD curl -fs http://localhost:$PORT || exit 1
 RUN npm i -g nodemon@$NODEMON_VERSION --loglevel error --unsafe-perm
 # Provides cached layer for node_modules
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm install --loglevel error && npm cache clean --force
+RUN cd /tmp && npm install --loglevel error
 RUN cp -a /tmp/node_modules /usr/src/app/
 ## Default ENVs
 ENV PORT $PORT
@@ -28,3 +28,5 @@ ENV NODE_ENV $NODE_ENV
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 ## Execute, compose overrides this to development
 CMD [ "node", "bin/server.js"]
+
+

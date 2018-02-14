@@ -1,0 +1,25 @@
+
+<app-header reveals>
+  <app-toolbar>
+    <div main-title>Welcome <span>[[name]]</span></div>
+    <paper-icon-button icon="menu" on-click="toggleDrawer"></paper-icon-button>
+    <paper-progress value="10" indeterminate bottom-item></paper-progress>
+  </app-toolbar>
+</app-header>
+
+<paper-card heading="[[info.name]]">
+  <div class="card-content">[[info.description]]</div>
+  <div class="card-actions">
+    <paper-button on-click="actionClick">Explore api!</paper-button>
+    <paper-button><a href="dashboard"><span>Visit dashboard</span></a></paper-button>
+  </div>
+</paper-card>
+
+<app-drawer id="drawer" align="right" slot="drawer">
+  <div class="drawer-contents">
+    <paper-icon-item>
+      <iron-icon icon="dashboard" item-icon slot="item-icon"></iron-icon>
+      <a href="dashboard"><span>Dashboard</span></a>
+    </paper-icon-item>
+  </div>
+</app-drawer>

@@ -1,0 +1,57 @@
+{
+  "name": "@kmade/app",
+  "version": "0.0.1-alpha.0",
+  "description": "Polymer application",
+  "private": true,
+  "flat": true,
+  "scripts": {
+    "start:dev": "webpack-dev-server --config ./config/webpack.config.js",
+    "build": "webpack --config ./config/webpack.config.js",
+    "test": "echo \"Execute test under $NODE_ENV environment\""
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@polymer/app-layout": "next",
+    "@polymer/iron-flex-layout": "next",
+    "@polymer/iron-icons": "^3.0.0-pre.8",
+    "@polymer/iron-media-query": "next",
+    "@polymer/iron-resizable-behavior": "next",
+    "@polymer/iron-scroll-target-behavior": "next",
+    "@polymer/paper-button": "^3.0.0-pre.8",
+    "@polymer/paper-card": "^3.0.0-pre.8",
+    "@polymer/paper-checkbox": "^3.0.0-pre.8",
+    "@polymer/paper-icon-button": "next",
+    "@polymer/paper-item": "^3.0.0-pre.8",
+    "@polymer/paper-menu-button": "next",
+    "@polymer/polymer": "next",
+    "@webcomponents/webcomponentsjs": "^1.0.22",
+    "polymer-redux": "^1.0.1",
+    "ramda": "^0.25.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "devDependencies": {
+    "clean-webpack-plugin": "0.1.17",
+    "copy-webpack-plugin": "4.1.0",
+    "css-loader": "^0.28.9",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "html-loader": "0.5.1",
+    "html-webpack-plugin": "2.30.1",
+    "postcss": "^6.0.16",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.10",
+    "postcss-pseudoelements": "^5.0.0",
+    "text-loader": "0.0.1",
+    "ts-loader": "2.3.7",
+    "typescript": "2.5.3",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "url-loader": "^0.6.2",
+    "webpack": "3.6.0",
+    "webpack-config": "^7.5.0",
+    "webpack-dev-server": "2.9.1"
+  },
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "1.0.22"
+  }
+}

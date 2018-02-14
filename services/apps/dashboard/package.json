@@ -1,0 +1,31 @@
+{
+  "name": "@kmade/dashbboard",
+  "version": "0.0.1-alpha.0",
+  "description": "React dashboard application",
+  "private": true,
+  "homepage": ".",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start:dev": "node config/react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "chartist": "^0.10.1",
+    "material-ui": "1.0.0-beta.30",
+    "material-ui-icons": "1.0.0-beta.17",
+    "perfect-scrollbar": "^1.3.0",
+    "react": "^16.2.0",
+    "react-chartist": "^0.13.1",
+    "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.5",
+    "react-router-dom": "^4.2.2",
+    "react-swipeable-views": "^0.12.12"
+  },
+  "devDependencies": {
+    "react-scripts": "^1.1.1",
+    "proxyquire": "^1.8.0",
+    "rewire": "^3.0.2"
+  }
+}

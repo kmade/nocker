@@ -1,0 +1,29 @@
+
+:host {
+  display: block;
+}
+app-drawer-layout:not([narrow]) [drawer-toggle] {
+  display: none;
+}
+
+app-toolbar {
+  background-color: #4285f4;
+  color: #fff;
+}
+app-drawer {
+  --app-drawer-scrim-background: rgba(0, 0, 100, 0.8);
+  --app-drawer-content-container: {
+    background-color: #fff;
+  }
+}
+
+app-drawer h2 {
+  margin: 8px 0 0;
+  padding: 18px;
+  font-size: 18px;
+}
+
+.drawer-contents {
+  height: 100%;
+  overflow-y: auto;
+}

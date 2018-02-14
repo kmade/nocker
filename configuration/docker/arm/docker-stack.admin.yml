@@ -47,4 +47,24 @@ services:
         #com.df.httpOnly: "true"
         com.df.distribute: "true"
         com.df.port: 9000
-
+  registry:
+    image: apcheamitru/arm32v7-registry
+    networks:
+      - swarm-overlay
+    volumes:
+      - /hdd/registry-data:/var/lib/registry
+    ports:
+      - "5000:5000"
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
+      labels:
+        com.df.serviceDomain: "registry.kmade.net"
+        com.df.notify: "true"
+        #com.df.httpOnly: "false"
+        com.df.distribute: "true"
+        com.df.port: 5000
+# http://kmade.net:5000/v2/_catalog
+# http://kmade.net:5000/v2/harbor-node/tags/list

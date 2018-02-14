@@ -1,21 +1,23 @@
 version: "3.3"
 
 services:
-  nginx:
-    container_name: ${COMPOSE_PROJECT_NAME}.nginx
-    image: nginx:alpine
-
   app:
     container_name: ${COMPOSE_PROJECT_NAME}.app
-    image: ${COMPOSE_PROJECT_NS}/app
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/app
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
-
+  dashboard:
+    container_name: ${COMPOSE_PROJECT_NAME}.dashboard
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/dashboard
+    build:
+      args:
+        NODE_IMG: ${NODE_IMG}
+        NODE_VERSION: ${NODE_VERSION}
   api:
     container_name: ${COMPOSE_PROJECT_NAME}.api
-    image: ${COMPOSE_PROJECT_NS}/api
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/api
     build:
       args:
         NODE_IMG: ${NODE_IMG}
@@ -23,8 +25,14 @@ services:
 
   service-http:
     container_name: ${COMPOSE_PROJECT_NAME}.service-http
-    image: ${COMPOSE_PROJECT_NS}/service-http
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/service-http
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
+  proxy:
+    container_name: ${COMPOSE_PROJECT_NAME}.proxy
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/proxy
+    build:
+      args:
+        NGINX_IMG: ${NGINX_IMG}
