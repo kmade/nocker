@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                sh """
-               docker compose build
+               scripts/build.sh
                """
             }
         }
