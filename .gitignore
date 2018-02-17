@@ -4,5 +4,7 @@ build
 *.log
 .env
 configuration/ssl/*
+configuration/secrets/*
 /volumes/*/
+
 *.code-workspace

@@ -77,7 +77,7 @@ services:
       context: ${ROOT_PATH}
     volumes:
       - ${CONF_PATH}/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ${CONF_PATH}/ssl/:/etc/nginx/ssl
+      #- ${CONF_PATH}/ssl/:/etc/nginx/ssl
     networks:
       - frontend-net
     ports:
