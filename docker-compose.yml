@@ -2,32 +2,32 @@ version: "3.3"
 
 services:
   app:
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/app:${TAG:-latest}
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/app:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   dashboard:
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/dashboard:${TAG:-latest}
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/dashboard:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   api:
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/api:${TAG:-latest}
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/api:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
 
   service-http:
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/service-http:${TAG:-latest}
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/service-http:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   proxy:
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/proxy:${TAG:-latest}
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/proxy:${TAG:-latest}
     build:
       args:
         NGINX_IMG: ${NGINX_IMG}

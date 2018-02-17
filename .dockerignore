@@ -1,0 +1,10 @@
+node_modules
+bower_components
+build
+*.log
+.env
+configuration/ssl/*
+configuration/secrets/*
+/volumes/*/
+
+*.code-workspace
