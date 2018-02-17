@@ -9,7 +9,7 @@ import {
 
 import 'assets/css/material-dashboard-react.css';
 
-import indexRoutes from 'routes/index';
+import indexRoutes from './routes';
 
 const hist = createBrowserHistory();
 
