@@ -1,14 +1,42 @@
 pipeline {
     agent any
-    stages {
-        stage('Build') {
+    stages{
+        stage('Build'){
             steps {
-
-               sh """
-               pwd
-               docker-compose -f docker-compose.yml -f docker-compose.override.yml -f configuration/docker/docker-compose.prod.yml -f configuration/docker/arm/docker-compose.arm32.yml build --force-rm
-               """
+                sh 'mvn clean package'
+            }
+            post {
+                success {
+                    echo 'Now Archiving...'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
             }
         }
+        stage ('Deploy to Staging'){
+            steps {
+                build job: 'Deploy-to-staging'
+            }
+        }
+
+        stage ('Deploy to Production'){
+            steps{
+                timeout(time:5, unit:'DAYS'){
+                    input message:'Approve PRODUCTION Deployment?'
+                }
+
+                build job: 'Deploy-to-Prod'
+            }
+            post {
+                success {
+                    echo 'Code deployed to Production.'
+                }
+
+                failure {
+                    echo ' Deployment failed.'
+                }
+            }
+        }
+
+
     }
 }

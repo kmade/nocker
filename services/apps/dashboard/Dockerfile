@@ -18,7 +18,6 @@ HEALTHCHECK CMD curl -fs http://localhost:$PORT || exit 1
 
 ENV PORT $PORT
 
-
 # copy project file
 ADD package.json /tmp/package.json
 # Provides cached layer for node_modules

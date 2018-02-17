@@ -14,9 +14,9 @@ WORKDIR $APP_ROOT
 ###########################
 # Build stage
 ###########################
-RUN npm i -g react-scripts@latest --loglevel error
+
 RUN echo "Build stage"
-RUN npm install --loglevel error --ignore-scripts
+RUN yarn
 RUN npm run build
 ###########################
 # Copy assets stage
