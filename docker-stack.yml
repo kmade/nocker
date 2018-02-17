@@ -1,0 +1,64 @@
+################################################################
+# KustomMade ©
+################################################################
+
+version: "3.3"
+networks:
+  frontend-net:
+      driver: overlay
+  backend-net:
+      driver: overlay
+  swarm-overlay:
+    external: true
+
+services:
+  app:
+    image: kmade.net:5000/km/proxy.arm32v7:${TAG:-latest}
+    networks:
+      - swarm-overlay
+      - frontend-net
+    volumes:
+      - /hdd/kmade/configuration/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /hdd/kmade/configuration/ssl/:/etc/nginx/ssl
+    ports:
+      - "8080:80"
+    deploy:
+      replicas: 1
+      labels:
+        com.df.serviceDomain: "kmade.net"
+        com.df.notify: "true"
+        com.df.httpsOnly: "true"
+        com.df.distribute: "true"
+        com.df.servicePath: "/"
+        com.df.addReqHeader: "X-Forwarded-For %[src]"
+        com.df.port: 80
+      placement:
+        constraints:
+          - node.role==manager
+          - node.platform.arch==armv7l
+  api:
+    image: kmade.net:5000/km/api.arm32v6:${TAG:-latest}
+    networks:
+      - frontend-net
+      - backend-net
+    deploy:
+      replicas: 2
+      placement:
+        constraints:
+          - node.platform.arch==armv6l
+      restart_policy:
+        condition: any
+
+  service-http:
+    networks:
+      - backend-net
+    image: kmade.net:5000/km/service-http.arm32v6:${TAG:-latest}
+    deploy:
+      replicas: 1
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.platform.arch==armv6l
+      restart_policy:
+        condition: any

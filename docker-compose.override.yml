@@ -8,6 +8,7 @@ networks:
 
 services:
   app:
+    container_name: ${COMPOSE_PROJECT_NAME}.app
     networks:
       - frontend-net
     env_file:
@@ -21,6 +22,7 @@ services:
       - ${APP_PATH}/:/usr/src/app
       - /usr/src/app/node_modules
   dashboard:
+    container_name: ${COMPOSE_PROJECT_NAME}.dashboard
     networks:
       - frontend-net
     environment:
@@ -36,6 +38,7 @@ services:
       - ${DASHBOARD_PATH}/:/usr/src/app
       - /usr/src/app/node_modules
   api:
+    container_name: ${COMPOSE_PROJECT_NAME}.api
     depends_on:
       - service-http
     networks:
@@ -51,6 +54,7 @@ services:
       - /usr/src/app/node_modules
 
   service-http:
+    container_name: ${COMPOSE_PROJECT_NAME}.service-http
     networks:
       - backend-net
     env_file:
@@ -63,6 +67,7 @@ services:
       - /usr/src/app/node_modules
 
   proxy:
+    container_name: ${COMPOSE_PROJECT_NAME}.proxy
     env_file:
       - ${ROOT_PATH}/.env
     depends_on:

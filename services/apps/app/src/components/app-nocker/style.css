@@ -7,7 +7,7 @@ app-drawer-layout:not([narrow]) [drawer-toggle] {
 }
 
 app-toolbar {
-  background-color: #4285f4;
+  background-color: #EF6B2D;
   color: #fff;
 }
 app-drawer {

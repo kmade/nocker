@@ -2,37 +2,32 @@ version: "3.3"
 
 services:
   app:
-    container_name: ${COMPOSE_PROJECT_NAME}.app
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/app
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/app:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   dashboard:
-    container_name: ${COMPOSE_PROJECT_NAME}.dashboard
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/dashboard
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/dashboard:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   api:
-    container_name: ${COMPOSE_PROJECT_NAME}.api
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/api
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/api:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
 
   service-http:
-    container_name: ${COMPOSE_PROJECT_NAME}.service-http
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/service-http
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/service-http:${TAG:-latest}
     build:
       args:
         NODE_IMG: ${NODE_IMG}
         NODE_VERSION: ${NODE_VERSION}
   proxy:
-    container_name: ${COMPOSE_PROJECT_NAME}.proxy
-    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/proxy
+    image: ${IMAGE_REGISTRY}/${COMPOSE_PROJECT_NS}/proxy:${TAG:-latest}
     build:
       args:
         NGINX_IMG: ${NGINX_IMG}

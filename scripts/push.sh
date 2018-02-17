@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 set -eu
 
-docker tag kmade/arm32v7.nginx kmade.net:5000/kmade/arm32v7.nginx
-docker push kmade.net:5000/kmade/arm32v7.nginx
+docker-compose -f docker-compose.yml -f docker-compose.override.yml -f configuration/docker/docker-compose.prod.yml -f configuration/docker/arm/docker-compose.arm32.yml push
