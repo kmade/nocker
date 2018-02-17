@@ -7,7 +7,7 @@ import {
     Switch
 } from 'react-router-dom';
 
-import 'assets/css/material-dashboard-react.css';
+import './assets/css/material-dashboard-react.css';
 
 import indexRoutes from './routes';
 
