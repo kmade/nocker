@@ -16,8 +16,8 @@ WORKDIR $APP_ROOT
 ###########################
 RUN npm i -g react-scripts@latest --loglevel error
 RUN echo "Build stage"
-RUN npm install --loglevel error --only=$NODE_ENV --ignore-scripts
-RUN npm run build --$NODE_ENV
+RUN npm install --loglevel error --ignore-scripts
+RUN npm run build
 ###########################
 # Copy assets stage
 ###########################

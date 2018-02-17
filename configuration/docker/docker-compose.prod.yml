@@ -17,4 +17,4 @@ services:
       dockerfile: production.Dockerfile
     volumes:
       - ${CONF_PATH}/nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
-      - ${CONF_PATH}/ssl/:/etc/nginx/ssl
+      #- ${CONF_PATH}/ssl/:/etc/nginx/ssl
