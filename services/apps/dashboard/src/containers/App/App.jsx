@@ -14,7 +14,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import {
     Header, Footer, Sidebar
-} from '../components';
+} from '../../components';
 
 import appRoutes from 'routes/app.jsx';
 
