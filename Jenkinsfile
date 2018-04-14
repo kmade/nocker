@@ -35,7 +35,7 @@ node {
         """
    }
    stage('Deploy') {
-        sh('ssh pi@kmade.net docker stack deploy -c /hdd/kmade/docker-stack.yml kmade --prune --resolve-image=never')
+        sh('ssh pi@kmade.net TAG=${env.BUILD_ID} docker stack deploy -c /hdd/kmade/docker-stack.yml kmade --prune --resolve-image=never')
    }
 
 }

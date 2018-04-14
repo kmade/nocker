@@ -12,7 +12,7 @@ networks:
     external: true
 
 services:
-  app:
+  web:
     image: kmade.net:5000/km/proxy.arm32v7:${TAG:-latest}
     networks:
       - swarm-overlay
@@ -42,13 +42,12 @@ services:
       - frontend-net
       - backend-net
     deploy:
-      replicas: 2
+      replicas: 1
       placement:
         constraints:
           - node.platform.arch==armv6l
       restart_policy:
         condition: any
-
   service-http:
     networks:
       - backend-net
