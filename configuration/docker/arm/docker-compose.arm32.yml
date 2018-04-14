@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   api:
-    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/api.arm32v6
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/api.arm32v6:${TAG:-latest}
     build:
       context: ${API_PATH}
       args:
@@ -10,7 +10,7 @@ services:
         NODE_VERSION: 9-alpine
 
   service-http:
-    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/service-http.arm32v6
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/service-http.arm32v6:${TAG:-latest}
     build:
       context: ${SERVICE_HTTP_PATH}
       args:
@@ -18,7 +18,7 @@ services:
         NODE_VERSION: 9-alpine
 
   proxy:
-    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/proxy.arm32v7
+    image: ${REGISTRY}/${COMPOSE_PROJECT_NS}/proxy.arm32v7:${TAG:-latest}
     build:
       context: ${ROOT_PATH}
       args:
