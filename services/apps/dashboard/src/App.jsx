@@ -38,7 +38,7 @@ export default class App extends React.Component {
 
     render() {
       return <div>
-        <h1>Hello <span>{this.name}</span></h1>
+        <h1>Hello <span>{this.name}</span>!</h1>
         <h3>{this.state.name}</h3>
         <h3>{this.state.description}</h3>
         <button onClick={this.handleClick}>Explore api!</button><small>Loading: {this.state.isLoading.toString()}</small>

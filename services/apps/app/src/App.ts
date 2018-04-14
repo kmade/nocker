@@ -48,7 +48,7 @@ export default class App extends PolymerElement {
 
   static get template() {
     return `
-      <h1>Hello <span>[[name]]</span></h1>
+      <h1>Hello <span>[[name]]</span>!</h1>
       <h3>[[info.name]]</h3>
       <h3>[[info.description]]</h3>
       <button on-click="actionClick">Explore api!</button><small>is loading: [[isLoading]]</small>
