@@ -12,6 +12,7 @@ services:
     networks:
       - frontend-net
     env_file:
+      - ${APP_PATH}/.env
       - ${ROOT_PATH}/.env
     build:
       context: ${APP_PATH}
@@ -26,6 +27,7 @@ services:
     networks:
       - frontend-net
     env_file:
+      - ${DASHBOARD_PATH}/.env
       - ${ROOT_PATH}/.env
     build:
       context: ${DASHBOARD_PATH}

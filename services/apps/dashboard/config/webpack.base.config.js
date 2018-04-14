@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { Config } = require('webpack-config');
-console.log(process.env.BASE_HREF)
+
 const extractCss = new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
@@ -14,8 +14,8 @@ const cleanBuild = new CleanWebpackPlugin(['build'], { verbose: true, root: path
 const htmlTpl =  new HtmlWebpackPlugin({
   template: './public/index.html',
   PUBLIC:'public',
-  BASE_HREF: process.env.BASE_HREF || './',
-  TITLE: 'Application Title',
+  BASE_HREF: process.env.BASE_HREF || '/dashboard/',
+  TITLE: 'Dashboard',
 });
 const copyAssets = new CopyWebpackPlugin();
 
