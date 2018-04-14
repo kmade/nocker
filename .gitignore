@@ -1,6 +1,7 @@
 node_modules
 bower_components
 build
+dist
 *.log
 .env
 configuration/ssl/*

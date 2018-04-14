@@ -9,7 +9,7 @@
     "sing": "index.js"
   },
   "scripts": {
-    "pack": "pkg package.json --output dist/sing  --target node9-macos-x64"
+    "pack": "pkg package.json --output build/sing  --target node9-macos-x64"
   },
   "dependencies": {
     "cliss": "0.0.5",
