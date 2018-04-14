@@ -1,4 +1,5 @@
 const app     = require('express')()
+const socket  = require('socket.io')
 const info    = require('../package.json')
 const gateway = require('./proxy')(app)
 const server  = require('http').Server(app)
@@ -43,7 +44,7 @@ app.get('*', (req, res) => {
 /**
  * Setup socket
  */
-const io = require('socket.io')(server, {
+const io = socket(server, {
   path: '/io',
   transports: ['websocket'],
 }).on('connection', socket => console.log('Client connected'))

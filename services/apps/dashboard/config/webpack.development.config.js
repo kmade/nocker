@@ -1,6 +1,17 @@
-const path = require('path');
+const webpack = require('webpack');
+const { Config } = require('webpack-config');
 
-module.exports = (config) => {
-  config.output.publicPath = process.env.BASE_HREF || '/'
-}
-
+module.exports = new Config().extend('config/webpack.base.config.js').merge({
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    hot: true,
+    inline:false,
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
+    disableHostCheck: true
+  },
+   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ]
+});

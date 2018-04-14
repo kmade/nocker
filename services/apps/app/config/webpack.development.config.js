@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const { Config } = require('webpack-config');
 
 module.exports = new Config().extend('config/webpack.base.config.js').merge({
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     hot: true,

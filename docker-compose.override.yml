@@ -25,9 +25,8 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}.dashboard
     networks:
       - frontend-net
-    environment:
-      - BASE_URL=dashboard
     env_file:
+      - ${DASHBOARD_PATH}/.env
       - ${ROOT_PATH}/.env
     build:
       context: ${DASHBOARD_PATH}

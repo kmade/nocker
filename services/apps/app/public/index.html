@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <base href="<%= htmlWebpackPlugin.options.BASE_HREF %>">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <link rel="manifest" href="<%= htmlWebpackPlugin.options.PUBLIC %>/manifest.json">
-  <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.PUBLIC %>/favicon.ico">
-  <link rel="apple-touch-icon" sizes="76x76" href="<%= htmlWebpackPlugin.options.PUBLIC %>/apple-icon.png">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <title><%= htmlWebpackPlugin.options.TITLE %></title>
-  <script src="webcomponentjs/webcomponents-loader.js"></script>
-
-</head>
-<body>
-  <app-nocker></app-nocker>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.TITLE %></title>
+    <base href="<%= htmlWebpackPlugin.options.BASE_HREF %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="manifest" href="<%= htmlWebpackPlugin.options.PUBLIC %>/manifest.json">
+    <link rel="shortcut icon" href="<%= htmlWebpackPlugin.options.PUBLIC %>/favicon.ico">
+    <link rel="apple-touch-icon" sizes="76x76" href="<%= htmlWebpackPlugin.options.PUBLIC %>/apple-icon.png">
+    <script src="webcomponentjs/webcomponents-lite.js"></script>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <nocker-app></nocker-app>
+  </body>
 </html>

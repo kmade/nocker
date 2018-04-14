@@ -5,6 +5,8 @@ services:
     build:
       context: ${APP_PATH}
       dockerfile: production.Dockerfile
+      args:
+        NODE_ENV: production
     command: /bin/true
   dashboard:
     build:
