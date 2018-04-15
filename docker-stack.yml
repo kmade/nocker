@@ -36,6 +36,8 @@ services:
         constraints:
           - node.role==manager
           - node.platform.arch==armv7l
+      restart_policy:
+        condition: any
   api:
     image: kmade.net:5000/km/api.arm32v6:${TAG:-latest}
     networks:
